@@ -18,9 +18,12 @@
   $(document).ready(function() {
 
     var width = document.documentElement.clientWidth;
-    var height = (3298 * width) / 4010;
+    //var height = (3298 * width) / 4010;
+    var height = document.documentElement.clientHeight;
+
     height = Math.round(height);
-    var heightSelect = Math.round(height / 15);
+
+    var heightSelect = Math.round(height / 12);
 
     console.log('Version 2');
     $('#selectPlaces').css('height', heightSelect);
@@ -29,7 +32,7 @@
 
     $('#mapImage').smoothZoom({
 			width: width,
-			height: height,
+			height: Math.round(heightSelect * 14),
 			zoom_BUTTONS_SHOW : 'YES',
 			pan_BUTTONS_SHOW : 'YES',
 			pan_LIMIT_BOUNDARY : 'YES'
