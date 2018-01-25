@@ -23,7 +23,7 @@
 
     height = Math.round(height);
 
-    var heightSelect = Math.round(height / 12);
+    var heightSelect = Math.round(height / 10);
 
     console.log('Version 3');
     $('#selectPlaces').css('height', heightSelect);
@@ -31,14 +31,11 @@
     console.log('Altura de select => ' + heightSelect);
     console.log('Altura Jquery => ' +  $(window).height());
 
-    setTimeout(function() {
-      console.log('Altura Jquery delayed => ' +  $(window).height());
-    }), 1000;
     //$('#spanData').text('ANCHO: ' + width + ' ALTO: ' + height);
 
     $('#mapImage').smoothZoom({
 			width: width,
-			height: Math.round(heightSelect * 10),
+			height: Math.round(heightSelect * 8.5),
 			zoom_BUTTONS_SHOW : 'YES',
 			pan_BUTTONS_SHOW : 'YES',
 			pan_LIMIT_BOUNDARY : 'YES'
