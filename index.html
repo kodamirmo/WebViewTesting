@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mapa SAP</title>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery.smoothZoom.min.js"></script>
+<script>
+
+  function populateSelect(places) {
+    var select = $("#selectPlaces");
+    places.forEach(function(place) {
+      var html = '<option value="' + place.id + '">' + place.name +'</option>';
+      select.append($(html));
+    });
+  }
+
+  $(document).ready(function() {
+
+    var width = document.documentElement.clientWidth;
+    var height = (3298 * width) / 4010;
+    height = Math.round(height);
+    $('#spanData').text('Ancho ' + width + ' Alto ' + height);
+
+    $('#mapImage').smoothZoom({
+			width: width,
+			height: height,
+			zoom_BUTTONS_SHOW : 'YES',
+			pan_BUTTONS_SHOW : 'YES',
+			pan_LIMIT_BOUNDARY : 'YES'
+		});
+
+    var places = [
+      {name: 'Teatro 1', id:1, corX: 1752, corY: 2406},
+      {name: 'Teatro 2', id:2, corX: 1795, corY: 1546},
+      {name: 'Teatro 2', id:2, corX: 3433, corY: 1540}
+    ];
+
+    populateSelect(places);
+
+    $("#selectPlaces").change(function() {
+      var id = $(this).val();
+
+      var place = places.find(function(element) {
+        return element.id == id;
+      });
+      console.log(place);
+      var moveTo = {
+        x : place.corX,
+        y : place.corY,
+        zoom : 200
+      };
+      $('#mapImage').smoothZoom('focusTo', moveTo);
+    });
+
+  })
+
+</script>
+
+</head>
+<body>
+
+  <select id="selectPlaces">
+    <option value="">Selecciona</option>
+  </select>
+  <h1 id="spanData"></h1>
+	<div>
+    <img id="mapImage" src="images/mapacortado.jpg" />
+  </div>
+
+</body>
+
+</html>
