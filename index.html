@@ -20,6 +20,9 @@
     var width = document.documentElement.clientWidth;
     var height = (3298 * width) / 4010;
     height = Math.round(height);
+    var heightSelect = Math.round(height / 5);
+
+    $('#selectPlaces').css('height', heightSelect);
     //$('#spanData').text('ANCHO: ' + width + ' ALTO: ' + height);
 
     $('#mapImage').smoothZoom({
