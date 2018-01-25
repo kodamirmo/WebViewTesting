@@ -29,7 +29,11 @@
     $('#selectPlaces').css('height', heightSelect);
     console.log('Altura de viewport => ' + height);
     console.log('Altura de select => ' + heightSelect);
-    console.log('Altura Jquery => ' +  $(window).height())
+    console.log('Altura Jquery => ' +  $(window).height());
+
+    setTimeout(function() {
+      console.log('Altura Jquery delayed => ' +  $(window).height());
+    }), 1000;
     //$('#spanData').text('ANCHO: ' + width + ' ALTO: ' + height);
 
     $('#mapImage').smoothZoom({
