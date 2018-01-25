@@ -20,9 +20,9 @@
     var width = document.documentElement.clientWidth;
     var height = (3298 * width) / 4010;
     height = Math.round(height);
-    var heightSelect = Math.round(height / 5);
+    var heightSelect = Math.round(height / 15);
 
-    console.log('Version 1');
+    console.log('Version 2');
     $('#selectPlaces').css('height', heightSelect);
     console.log('Altura de select => ', heightSelect);
     //$('#spanData').text('ANCHO: ' + width + ' ALTO: ' + height);
@@ -66,7 +66,7 @@
 <body>
 
   <select id="selectPlaces" style="width: 100%;">
-    <option value="">Selecciona</option>
+    <option value="">Seleccione</option>
   </select>
 	<div>
     <img id="mapImage" src="images/mapacortado.jpg" />
